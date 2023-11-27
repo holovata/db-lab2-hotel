@@ -1,0 +1,78 @@
+----STORED PROCEDURES:----
+
+1) CalculateAverageStayDays
+
+EXEC CalculateAverageStayDays @HotelType = N'3-star';
+
+--------------------------
+
+2) GetAdminEmployeesByHotel
+
+EXEC GetAdminEmployeesByHotel @HotelName = N'Hotel B';
+
+--------------------------
+
+3) GetCustomerCountByCountry
+
+EXEC GetCustomerCountByCountry @Country = N'Albania';
+
+--------------------------
+
+4) GetDishesCountByType
+
+EXEC GetDishesCountByType @DishType = N'dairy-free';
+
+--------------------------
+
+5) ListRoomsByTypes
+
+EXEC ListRoomsByTypes @OccupancyType = N'double', @SuiteStyleType = N'junior';
+
+
+---------TRIGGERS:---------
+
+1) Customers - PreventUpdateCreatedAtCustomers
+
+UPDATE Customers SET createdAt = '2023-01-01' WHERE id = 1;
+
+--------------------------
+
+2) Reservations - PreventUpdateCreatedAt
+
+UPDATE Reservations SET createdAt = '2023-01-01' WHERE id = 1;
+
+--------------------------
+
+3) Reservations - UpdateReservation
+
+UPDATE Reservations SET specialRequests = '123456' WHERE id = 2;
+
+--------------------------
+
+4) Reservations - CheckArrivalDepartureDates
+
+INSERT INTO Reservations (id, hotelId, customerId, numberOfGuests, roomId, reservationDate, arrivalDate, departureDate, createdAt, updatedAt, status)
+VALUES (28, 1, 2, 1, 2, '2023-10-26 10:00:00', '2023-10-29 10:00:00', '2023-10-27 10:00:00', '2023-10-21 10:00:00', '2023-10-21 10:00:00', 'confirmed');
+
+UPDATE Reservations
+SET arrivalDate = '2023-10-31 10:00:00', departureDate = '2023-10-29 10:00:00'
+WHERE id = 1;
+
+
+----------FUNCTIONS------
+
+Payments - CalculatePaymentAmount
+
+INSERT INTO Payments (id, paymentDate, reservationId) 
+VALUES (15, 2023-10-23, 3);
+
+
+
+
+
+
+
+
+
+
+
