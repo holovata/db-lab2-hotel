@@ -1,5 +1,5 @@
 import mongoose from 'mongoose';
-const uri = "mongodb+srv://kholovata:bAbobu1234@cluster0.zcyoiik.mongodb.net/?retryWrites=true&w=majority";
+const uri = "не скажу";
 
 const connectDB = async () => {
     try {
